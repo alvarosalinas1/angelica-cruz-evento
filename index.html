@@ -1,175 +1,137 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angélica Cruz: El Evento de la Transformación | Santiago</title>
+    <title>¡Última Oportunidad! Angélica Cruz en Chile | Entradas Aquí</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Audaz & Urgente (Negro, Magenta, Blanco) -->
-    <!-- Application Structure Plan: Estructura de embudo de conversión de una sola página, optimizada para móvil: 1. Hero (Urgencia, Fecha, CTA Único). 2. Dolor (Detonante emocional). 3. Liberación (La Promesa). 4. Conversión (Detalles de Contacto). El CTA es el elemento central y se repite de forma prominente. Se usa un diseño de alto contraste para máxima visibilidad en redes sociales. -->
-    <!-- Visualization & Content Choices: 1) Indicador de Trauma -> Objetivo: Cuantificar visualmente el dolor sin usar números reales -> Método: Gráfico de Barra Falsa con HTML/CSS/JS -> Interacción: Visualiza el progreso de forma inmediata -> Justificación: Crea un impacto dramático al mostrar el "camino recorrido". 2) Tarjetas de Dolor -> Objetivo: Detallar el sufrimiento sin abrumar -> Método: Bloques estáticos de alto contraste (fijo, no flip) -> Interacción: Visibilidad inmediata -> Justificación: Presentación estética y directa del contenido clave, según la solicitud del usuario. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    
+    <!-- PALETA DE COLORES ACTUALIZADA -->
     <style>
+        :root {
+            --color-bg-base: #6F5D75; /* Morado Oscuro */
+            --color-text-light: #F3DEB3; /* Crema Pálido */
+            --color-accent-strong: #893616; /* Terracota Intenso (Urgencia) */
+            --color-cta: #C5784C; /* Naranja Quemado (WhatsApp) */
+            --color-accent-soft: #C2AAC0; /* Malva Muted */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: var(--color-bg-base);
+            color: var(--color-text-light);
+            line-height: 1.6;
         }
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
         }
-        /* Animación para el botón de CTA */
-        .cta-button-pulse {
-            animation: pulse-cta 2s infinite;
+        /* Clase reutilizable para el fondo principal de acento */
+        .bg-accent-strong {
+            background-color: var(--color-accent-strong);
         }
-        @keyframes pulse-cta {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); }
+        /* Clase reutilizable para el color de texto claro */
+        .text-accent-strong {
+            color: var(--color-accent-strong);
+        }
+
+        /* Animación para el botón de WhatsApp (usando el color CTA) */
+        .whatsapp-pulse {
+            animation: pulse-whatsapp 1.5s infinite;
+        }
+        @keyframes pulse-whatsapp {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 120, 76, 0.7); /* CTA Color */ }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(194, 170, 192, 0); /* Soft Accent Color for fade */ }
         }
     </style>
 </head>
-<body class="bg-black text-white min-h-screen">
+<body class="min-h-screen pt-8 pb-16">
 
-    <!-- HERO / URGENCIA MÁXIMA -->
-    <section id="hero" class="relative overflow-hidden pt-12 pb-16 px-6 text-center border-b-8 border-magenta-500 bg-gray-900/50">
-        <div class="relative z-10 container mx-auto max-w-xl">
-            <p class="text-xs font-bold uppercase tracking-widest text-yellow-400 mb-2">¡OPORTUNIDAD ÚNICA EN CHILE!</p>
-            <h1 class="text-5xl sm:text-7xl font-black mb-4 leading-tight text-white">
-                DE LA <span class="text-[#E91E63]">VIOLENCIA</span> AL MILLÓN.
+    <!-- Contenedor Principal Centrado y con Margen -->
+    <main class="container mx-auto px-6 max-w-xl">
+        
+        <!-- TÍTULO PRINCIPAL Y URGENCIA -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight text-white">
+                DE LA <span class="text-accent-strong">VIOLENCIA</span> A LA LIBERTAD TOTAL
             </h1>
-            <h2 class="text-lg sm:text-2xl font-semibold mb-6 text-gray-300">
-                Angélica Cruz: La Maestra de la <span class="underline decoration-[#E91E63] decoration-4">Liberación Personal</span>.
+            <h2 class="text-xl sm:text-2xl font-bold text-yellow-400" style="color: var(--color-accent-soft);">
+                Angélica Cruz en Santiago: ¡Última Oportunidad!
             </h2>
+        </header>
+
+        <!-- BOTÓN DE WHATSAPP GIGANTE Y FIJO (Se repite al inicio para conversión rápida) -->
+        <!-- Color del Botón: Burnt Orange (#C5784C) -->
+        <a id="cta-header" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-2xl py-4 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center mb-10 uppercase" style="background-color: var(--color-cta); color: #FFF;">
+            <!-- Icono de WhatsApp -->
+            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.039 1.8c-5.518 0-9.981 4.463-9.981 9.981 0 1.76.452 3.425 1.252 4.887l-1.42 5.176 5.312-1.391c1.429.757 3.033 1.168 4.837 1.168 5.518 0 9.981-4.463 9.981-9.981s-4.463-9.981-9.981-9.981zm4.846 13.911c-.131.291-.482.383-.79.255-.308-.127-1.157-.495-2.222-.888-.344-.127-.591-.19-.838.127-.247.318-.953 1.166-1.16 1.413-.207.247-.403.265-.758.069-.356-.196-1.493-.548-2.845-1.758-1.049-.93-1.748-2.189-1.956-2.533-.207-.344-.022-.531.186-.738.186-.186.413-.482.591-.729.178-.247.23-.413.344-.64.114-.227.057-.423-.038-.591-.095-.168-.838-2.012-.876-2.457-.038-.445-.076-.758-.047-.954.028-.196.143-.374.344-.542.201-.173.491-.322.687-.312.196.01.374.01.56.247.186.238.281.579.356.747.076.173.133.374.019.64-.114.266-.318.991-.344 1.16-.026.168-.01.291.133.567.143.266.365.659.636.885.27.227.671.374.908.488.238.114.509.152.687.133.207-.02.664-.266.85-.504.186-.238.318-.327.504-.413.186-.085.39-.123.636-.085.247.038.747.238 1.055.423.308.196.504.291.56.459.057.168.057.949-.664 1.761z"/></svg>
+            ¡Escribe YA al WhatsApp!
+        </a>
+
+        <!-- CONTENIDO DETALLADO DEL REEL -->
+        <section class="space-y-8 text-lg" style="color: var(--color-text-light);">
+
+            <p class="text-3xl font-black text-accent-strong">💔 El Dolor Se Convirtió en Tu Fuerza.</p>
+            <p>
+                Detrás de la mujer **poderosa** que ves hoy, hay una historia que pocos se atreven a contar. La vida de Angélica Cruz no comenzó con éxitos y aplausos, sino en la lucha diaria dentro de un **barrio peligroso de México** llamado "Colonia del crimen" en los años 80's 🇲🇽, donde la única motivación era la supervivencia y sus hijos. 👶👧
+            </p>
+
+            <!-- Bloque de Contraste - Malva Muted (#C2AAC0) con texto oscuro para destacar -->
+            <div class="p-5 rounded-xl border-l-4 border-accent-strong" style="background-color: var(--color-accent-soft); color: var(--color-bg-base);">
+                <p>
+                    Angélica vivió bajo la sombra de un esposo cruelmente **violento, manipulador e invalidante**, un hombre que se propuso destrozar su autoestima, su voz y su identidad. El miedo era su pan de cada día, pero la idea de sacar a su familia adelante fue el motor que la obligó a seguir. 🔥
+                </p>
+            </div>
+
+            <p>
+                La necesidad de huir era urgente, pero... ¿Cómo se escapa una mujer sin recursos y sin apoyo de una prisión emocional tan fuerte? ⛓️ Su primer negocio no fue un sueño, fue un **acto desesperado de supervivencia**. Cada paso fue una batalla ganada contra la opresión, construyendo el único camino hacia la **libertad financiera y personal** que necesitaba para romper las cadenas para siempre. 🕊️
+            </p>
             
-            <!-- FECHA Y LUGAR -->
-            <div class="bg-[#E91E63] text-black p-4 rounded-xl shadow-2xl mb-8">
-                <p class="text-xl font-extrabold uppercase sm:text-3xl tracking-tight">
-                    4 Y 5 DE OCTUBRE
+            <p class="text-xl font-bold pt-4">
+                Hoy, Angélica es el resultado de esa guerra: una mujer que se levantó de las cenizas para convertirse en un ícono que empodera y rescata a miles de mujeres en toda Latinoamérica.
+            </p>
+            
+            <hr style="border-color: var(--color-accent-soft);">
+
+            <!-- SECCIÓN DE URGENCIA Y DETALLES DEL EVENTO -->
+            <p class="text-3xl font-black text-center" style="color: var(--color-cta);">🚨 ¡OPORTUNIDAD ÚNICA: VIENE A CHILE! 🇨🇱</p>
+
+            <!-- Bloque de Acento - Terracota Intenso (#893616) con texto claro -->
+            <div class="bg-accent-strong text-white p-6 rounded-xl text-center shadow-lg" style="color: var(--color-text-light);">
+                <p class="font-bold text-xl mb-4">
+                    Esta no es una charla más; es la oportunidad **IRREPETIBLE** de conocer la voz que te sacará del abismo. Angélica Cruz llega a Santiago para compartir, en persona, el mapa exacto de su liberación y cómo transformó el trauma en un imperio.
                 </p>
-                <p class="text-base font-medium sm:text-xl">
-                    <span class="font-bold">ESPACIO RIESCO</span>, SANTIAGO
+                <p class="font-extrabold text-2xl uppercase mt-5">
+                    No te pierdas esta experiencia que puede cambiar tu vida.
                 </p>
             </div>
 
-            <!-- CTA PRINCIPAL (ENLACE A WHATSAPP) -->
-            <a id="cta-hero" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="cta-button-pulse bg-yellow-400 text-black font-black text-xl sm:text-2xl py-4 px-10 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 w-full inline-block uppercase">
-                ¡Escribe YA y asegura tu cupo!
-            </a>
-            <p class="text-sm font-bold mt-3 text-gray-400">CUPOS LIMITADOS Y FINALIZAN PRONTO.</p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 1: EL DOLOR CRUDO (80% DEL ENFOQUE EMOCIONAL) -->
-    <section id="dolor" class="py-16 px-6 bg-black">
-        <div class="container mx-auto max-w-3xl">
-            <h3 class="text-3xl font-bold text-center mb-10 text-[#E91E63]">
-                La Historia Que Nadie Cuenta.
-            </h3>
-            <p class="text-lg text-gray-300 mb-10 text-center">
-                Antes del éxito, Angélica vivió en la sombra. Un matrimonio marcado por la **violencia psicológica, la humillación constante y el control absoluto**. Este evento no es sobre negocios; es sobre cómo se reconstruyó un alma desde los cimientos.
+            <div class="space-y-3 text-center text-lg font-semibold pt-4">
+                <p>Los cupos son **LIMITADOS** y la oportunidad de escucharla de cerca es **AHORA**.</p>
+                
+                <p class="text-2xl font-black" style="color: var(--color-cta);">
+                    🗓️ 4 y 5 de octubre.
+                </p>
+                <p class="text-2xl font-black" style="color: var(--color-cta);">
+                    📍 Espacio Riesco, Santiago.
+                </p>
+            </div>
+            
+            <!-- CTA FINAL (EL MÁS GRANDE) -->
+            <p class="text-center font-bold pt-6" style="color: var(--color-text-light);">
+                ¡Asegura tu lugar HOY! Entradas disponibles a través del botón. ¡Escríbenos y comienza tu transformación! 💪
             </p>
 
-            <!-- BARRAS DE TRAUMA (Visualización simple de la carga) -->
-            <div class="bg-gray-800 p-6 rounded-xl mb-12">
-                <p class="text-sm uppercase font-bold text-gray-400 mb-4">Carga Emocional Acumulada (Años 80s/90s)</p>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center text-sm font-semibold">
-                        <span>Violencia Psicológica</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="h-4 bg-gray-700 rounded-full">
-                        <div class="h-4 bg-[#E91E63] rounded-full" style="width: 95%;"></div>
-                    </div>
-                     <div class="flex justify-between items-center text-sm font-semibold">
-                        <span>Dependencia Económica</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="h-4 bg-gray-700 rounded-full">
-                        <div class="h-4 bg-[#E91E63] rounded-full" style="width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BLOQUES ESTÁTICOS Y ESTÉTICOS: DETALLES ÍNTIMOS -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <!-- BLOQUE 1: HUMILLACIÓN (Estilo Oscuro) -->
-                <div class="h-56 rounded-xl bg-gray-800 shadow-xl flex flex-col justify-center items-center p-6 text-center border-4 border-[#E91E63]/50">
-                    <span class="text-5xl mb-2 text-yellow-400">💔</span>
-                    <h5 class="font-bold text-xl text-white">LA HUMILLACIÓN DIARIA</h5>
-                    <p class="text-gray-400 text-sm mt-2">Fue forzada a la sumisión. Se le prohibió maquillarse, vestirse y actuar como una mujer libre. El control era tan estricto que cada respiración era una ofensa para su controlador.</p>
-                </div>
-
-                <!-- BLOQUE 2: HUIR (DETONANTE FINAL) - ALTO CONTRASTE Y ESTÉTICO -->
-                <div class="h-56 rounded-xl bg-[#E91E63] text-black shadow-xl flex flex-col justify-center items-center p-6 text-center border-4 border-yellow-400">
-                    <span class="text-5xl mb-2 text-black">🚨</span>
-                    <h5 class="font-black text-2xl mb-2">EL DETONANTE FINAL</h5>
-                    <p class="text-base font-medium">El quiebre final ocurrió cuando la amenaza ya no fue solo sobre ella, sino sobre sus hijos. El miedo por ellos superó su propio terror, forzándola a tomar la decisión más difícil de su vida: <span class="uppercase underline font-extrabold">HUIR.</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 2: LA LIBERACIÓN Y LA PROMESA -->
-    <section id="liberacion" class="py-16 px-6 bg-white text-black">
-        <div class="container mx-auto max-w-3xl text-center">
-            <h3 class="text-3xl font-bold mb-4 text-[#E91E63]">
-                SU ÚNICA DECISIÓN: NO MÁS.
-            </h3>
-            <p class="text-lg mb-10 text-gray-700">
-                Su historia de éxito no comenzó con un producto, sino con un **acto de rebelión**. Angélica desafió a su opresor y, paso a paso, construyó una nueva identidad basada en la fuerza y la independencia.
-            </p>
-
-            <blockquote class="text-xl sm:text-3xl font-extrabold italic mb-10 p-6 border-l-8 border-yellow-400 bg-gray-100/50 rounded-lg">
-                “Tu pasado fue doloroso, pero la decisión de liberarte te hizo invencible.”
-            </blockquote>
-
-            <div class="bg-[#E91E63] text-white p-8 rounded-xl shadow-2xl">
-                <p class="text-2xl font-black mb-4 uppercase">¿CÓMO PASAS DE VÍCTIMA A INFLUENCER GLOBAL?</p>
-                <p class="text-lg font-medium">
-                    Angélica Cruz es hoy una **Oradora Internacional** y un ícono de la independencia femenina. En Chile, compartirá el mapa exacto de su **transformación total**. Si buscas un cambio real, esta es tu única oportunidad.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 3: CTA FINAL Y CONTACTO -->
-    <section id="contacto" class="py-16 px-6 bg-black text-white text-center">
-        <div class="container mx-auto max-w-xl">
-            <h3 class="text-4xl font-black mb-8 text-yellow-400">
-                NO TE QUEDES FUERA.
-            </h3>
-
-            <!-- CTA FINAL (ENLACE A WHATSAPP) -->
-             <a id="cta-final" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="cta-button-pulse bg-yellow-400 text-black font-black text-2xl py-5 px-10 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300 w-full inline-block uppercase">
-                ¡Escribe YA y asegura tu cupo!
+            <!-- Color del Botón: Burnt Orange (#C5784C) -->
+            <a id="cta-footer" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-3xl py-5 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center uppercase" style="background-color: var(--color-cta); color: #FFF;">
+                 <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.039 1.8c-5.518 0-9.981 4.463-9.981 9.981 0 1.76.452 3.425 1.252 4.887l-1.42 5.176 5.312-1.391c1.429.757 3.033 1.168 4.837 1.168 5.518 0 9.981-4.463 9.981-9.981s-4.463-9.981-9.981-9.981zm4.846 13.911c-.131.291-.482.383-.79.255-.308-.127-1.157-.495-2.222-.888-.344-.127-.591-.19-.838.127-.247.318-.953 1.166-1.16 1.413-.207.247-.403.265-.758.069-.356-.196-1.493-.548-2.845-1.758-1.049-.93-1.748-2.189-1.956-2.533-.207-.344-.022-.531.186-.738.186-.186.413-.482.591-.729.178-.247.23-.413.344-.64.114-.227.057-.423-.038-.591-.095-.168-.838-2.012-.876-2.457-.038-.445-.076-.758-.047-.954.028-.196.143-.374.344-.542.201-.173.491-.322.687-.312.196.01.374.01.56.247.186.238.281.579.356.747.076.173.133.374.019.64-.114.266-.318.991-.344 1.16-.026.168-.01.291.133.567.143.266.365.659.636.885.27.227.671.374.908.488.238.114.509.152.687.133.207-.02.664-.266.85-.504.186-.238.318-.327.504-.413.186-.085.39-.123.636-.085.247.038.747.238 1.055.423.308.196.504.291.56.459.057.168.057.949-.664 1.761z"/></svg>
+                ¡CONTACTA AHORA POR WHATSAPP!
             </a>
 
-            <p class="text-base font-bold mt-8 mb-6 text-gray-400">
-                Entradas y logística solo a través del contacto oficial:
-            </p>
+        </section>
 
-            <div class="space-y-4 text-left inline-block">
-                <p class="font-bold text-lg">Contacto para Entradas (Álvaro Salinas):</p>
-                <!-- ENLACE Y TEXTO ACTUALIZADO A WHATSAPP -->
-                <p class="text-sm text-gray-300">
-                    <span class="font-bold text-[#E91E63]">WHATSAPP (Venta Directa):</span>
-                    <a href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="text-yellow-400 underline ml-2">+56 9 8159 0912</a>
-                </p>
-                <p class="text-sm text-gray-300">
-                    <span class="font-bold text-[#E91E63]">EMAIL:</span>
-                    <a href="mailto:alvarosalinas.hbl@gmail.com" class="text-yellow-400 underline ml-2">alvarosalinas.hbl@gmail.com</a>
-                </p>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-gray-800">
-                 <p class="font-bold text-lg text-gray-400">Sigue a Angélica Cruz:</p>
-                 <a href="https://www.instagram.com/angelicacruzemprender?igsh=MWNjNDJjNTV3czNidQ==" target="_blank" class="text-sm text-yellow-400 underline">@angelicacruzemprender</a>
-            </div>
-        </div>
-    </section>
+    </main>
 </body>
 </html>
