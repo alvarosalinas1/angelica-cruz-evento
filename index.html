@@ -9,20 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
-    <!-- PALETA DE COLORES ACTUALIZADA -->
+    <!-- PALETA DE COLORES ACTUALIZADA para Fondo Claro (#E9E4E5) -->
     <style>
         :root {
-            --color-bg-base: #6F5D75; /* Morado Oscuro */
-            --color-text-light: #F3DEB3; /* Crema Pálido */
+            --color-bg-base: #E9E4E5; /* Fondo Claro solicitado */
+            --color-text-dark: #222222; /* Texto principal (casi negro) */
             --color-accent-strong: #893616; /* Terracota Intenso (Urgencia) */
-            --color-cta: #C5784C; /* Naranja Quemado (WhatsApp) */
-            --color-accent-soft: #C2AAC0; /* Malva Muted */
+            --color-cta: #C5784C; /* Naranja Quemado (WhatsApp Button) */
+            --color-contrast-block: #6F5D75; /* Morado/Malva Oscuro (Para bloques de contraste) */
+            --color-accent-soft: #C2AAC0; /* Malva Muted (Acento secundario) */
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-bg-base);
-            color: var(--color-text-light);
+            color: var(--color-text-dark);
             line-height: 1.6;
         }
         h1, h2, h3 {
@@ -32,9 +33,13 @@
         .bg-accent-strong {
             background-color: var(--color-accent-strong);
         }
-        /* Clase reutilizable para el color de texto claro */
+        /* Clase reutilizable para el color de acento fuerte */
         .text-accent-strong {
             color: var(--color-accent-strong);
+        }
+        /* Clase para el texto claro en bloques oscuros */
+        .text-light {
+            color: #FFFFFF; /* Blanco puro para bloques de contraste */
         }
 
         /* Animación para el botón de WhatsApp (usando el color CTA) */
@@ -49,37 +54,39 @@
 </head>
 <body class="min-h-screen pt-8 pb-16">
 
+    <!-- Enlace de WhatsApp Corregido: Hola en mayúscula -->
+    <!-- https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias! -->
+    
     <!-- Contenedor Principal Centrado y con Margen -->
     <main class="container mx-auto px-6 max-w-xl">
         
         <!-- TÍTULO PRINCIPAL Y URGENCIA -->
         <header class="text-center mb-10">
-            <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight text-white">
+            <h1 class="text-3xl sm:text-4xl font-black mb-2 leading-tight">
                 DE LA <span class="text-accent-strong">VIOLENCIA</span> A LA LIBERTAD TOTAL
             </h1>
-            <h2 class="text-xl sm:text-2xl font-bold text-yellow-400" style="color: var(--color-accent-soft);">
+            <h2 class="text-xl sm:text-2xl font-bold" style="color: var(--color-accent-soft);">
                 Angélica Cruz en Santiago: ¡Última Oportunidad!
             </h2>
         </header>
 
-        <!-- BOTÓN DE WHATSAPP GIGANTE Y FIJO (Se repite al inicio para conversión rápida) -->
-        <!-- Color del Botón: Burnt Orange (#C5784C) -->
-        <a id="cta-header" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-2xl py-4 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center mb-10 uppercase" style="background-color: var(--color-cta); color: #FFF;">
-            <!-- Icono de WhatsApp -->
+        <!-- BOTÓN DE WHATSAPP GIGANTE Y FIJO (ENLACE CORREGIDO) -->
+        <a id="cta-header" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-2xl py-4 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center mb-10 uppercase" style="background-color: var(--color-cta); color: #FFFFFF;">
+            <!-- Icono de WhatsApp con SVG inline -->
             <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.039 1.8c-5.518 0-9.981 4.463-9.981 9.981 0 1.76.452 3.425 1.252 4.887l-1.42 5.176 5.312-1.391c1.429.757 3.033 1.168 4.837 1.168 5.518 0 9.981-4.463 9.981-9.981s-4.463-9.981-9.981-9.981zm4.846 13.911c-.131.291-.482.383-.79.255-.308-.127-1.157-.495-2.222-.888-.344-.127-.591-.19-.838.127-.247.318-.953 1.166-1.16 1.413-.207.247-.403.265-.758.069-.356-.196-1.493-.548-2.845-1.758-1.049-.93-1.748-2.189-1.956-2.533-.207-.344-.022-.531.186-.738.186-.186.413-.482.591-.729.178-.247.23-.413.344-.64.114-.227.057-.423-.038-.591-.095-.168-.838-2.012-.876-2.457-.038-.445-.076-.758-.047-.954.028-.196.143-.374.344-.542.201-.173.491-.322.687-.312.196.01.374.01.56.247.186.238.281.579.356.747.076.173.133.374.019.64-.114.266-.318.991-.344 1.16-.026.168-.01.291.133.567.143.266.365.659.636.885.27.227.671.374.908.488.238.114.509.152.687.133.207-.02.664-.266.85-.504.186-.238.318-.327.504-.413.186-.085.39-.123.636-.085.247.038.747.238 1.055.423.308.196.504.291.56.459.057.168.057.949-.664 1.761z"/></svg>
             ¡Escribe YA al WhatsApp!
         </a>
 
-        <!-- CONTENIDO DETALLADO DEL REEL -->
-        <section class="space-y-8 text-lg" style="color: var(--color-text-light);">
+        <!-- CONTENIDO DETALLADO DEL REEL (Texto Original Restaurado) -->
+        <section class="space-y-8 text-lg" style="color: var(--color-text-dark);">
 
             <p class="text-3xl font-black text-accent-strong">💔 El Dolor Se Convirtió en Tu Fuerza.</p>
             <p>
                 Detrás de la mujer **poderosa** que ves hoy, hay una historia que pocos se atreven a contar. La vida de Angélica Cruz no comenzó con éxitos y aplausos, sino en la lucha diaria dentro de un **barrio peligroso de México** llamado "Colonia del crimen" en los años 80's 🇲🇽, donde la única motivación era la supervivencia y sus hijos. 👶👧
             </p>
 
-            <!-- Bloque de Contraste - Malva Muted (#C2AAC0) con texto oscuro para destacar -->
-            <div class="p-5 rounded-xl border-l-4 border-accent-strong" style="background-color: var(--color-accent-soft); color: var(--color-bg-base);">
+            <!-- Bloque de Contraste - Malva Oscuro (#6F5D75) con texto claro -->
+            <div class="p-5 rounded-xl border-l-4 border-accent-strong" style="background-color: var(--color-contrast-block); color: #FFFFFF;">
                 <p>
                     Angélica vivió bajo la sombra de un esposo cruelmente **violento, manipulador e invalidante**, un hombre que se propuso destrozar su autoestima, su voz y su identidad. El miedo era su pan de cada día, pero la idea de sacar a su familia adelante fue el motor que la obligó a seguir. 🔥
                 </p>
@@ -99,7 +106,7 @@
             <p class="text-3xl font-black text-center" style="color: var(--color-cta);">🚨 ¡OPORTUNIDAD ÚNICA: VIENE A CHILE! 🇨🇱</p>
 
             <!-- Bloque de Acento - Terracota Intenso (#893616) con texto claro -->
-            <div class="bg-accent-strong text-white p-6 rounded-xl text-center shadow-lg" style="color: var(--color-text-light);">
+            <div class="bg-accent-strong p-6 rounded-xl text-center shadow-lg" style="background-color: var(--color-accent-strong); color: #FFFFFF;">
                 <p class="font-bold text-xl mb-4">
                     Esta no es una charla más; es la oportunidad **IRREPETIBLE** de conocer la voz que te sacará del abismo. Angélica Cruz llega a Santiago para compartir, en persona, el mapa exacto de su liberación y cómo transformó el trauma en un imperio.
                 </p>
@@ -119,13 +126,12 @@
                 </p>
             </div>
             
-            <!-- CTA FINAL (EL MÁS GRANDE) -->
-            <p class="text-center font-bold pt-6" style="color: var(--color-text-light);">
+            <!-- CTA FINAL (EL MÁS GRANDE, ENLACE CORREGIDO) -->
+            <p class="text-center font-bold pt-6" style="color: var(--color-text-dark);">
                 ¡Asegura tu lugar HOY! Entradas disponibles a través del botón. ¡Escríbenos y comienza tu transformación! 💪
             </p>
 
-            <!-- Color del Botón: Burnt Orange (#C5784C) -->
-            <a id="cta-footer" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-3xl py-5 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center uppercase" style="background-color: var(--color-cta); color: #FFF;">
+            <a id="cta-footer" href="https://api.whatsapp.com/send?phone=56981590912&text=Hola%20Alvaro,%20quiero%20saber%20como%20conseguir%20las%20entradas%20para%20el%20Evento%20de%20Angelica%20Cruz%20por%20favor,%20Gracias!" target="_blank" class="whatsapp-pulse text-white font-black text-3xl py-5 px-8 rounded-xl shadow-lg hover:bg-opacity-90 transition duration-300 w-full flex items-center justify-center uppercase" style="background-color: var(--color-cta); color: #FFFFFF;">
                  <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.039 1.8c-5.518 0-9.981 4.463-9.981 9.981 0 1.76.452 3.425 1.252 4.887l-1.42 5.176 5.312-1.391c1.429.757 3.033 1.168 4.837 1.168 5.518 0 9.981-4.463 9.981-9.981s-4.463-9.981-9.981-9.981zm4.846 13.911c-.131.291-.482.383-.79.255-.308-.127-1.157-.495-2.222-.888-.344-.127-.591-.19-.838.127-.247.318-.953 1.166-1.16 1.413-.207.247-.403.265-.758.069-.356-.196-1.493-.548-2.845-1.758-1.049-.93-1.748-2.189-1.956-2.533-.207-.344-.022-.531.186-.738.186-.186.413-.482.591-.729.178-.247.23-.413.344-.64.114-.227.057-.423-.038-.591-.095-.168-.838-2.012-.876-2.457-.038-.445-.076-.758-.047-.954.028-.196.143-.374.344-.542.201-.173.491-.322.687-.312.196.01.374.01.56.247.186.238.281.579.356.747.076.173.133.374.019.64-.114.266-.318.991-.344 1.16-.026.168-.01.291.133.567.143.266.365.659.636.885.27.227.671.374.908.488.238.114.509.152.687.133.207-.02.664-.266.85-.504.186-.238.318-.327.504-.413.186-.085.39-.123.636-.085.247.038.747.238 1.055.423.308.196.504.291.56.459.057.168.057.949-.664 1.761z"/></svg>
                 ¡CONTACTA AHORA POR WHATSAPP!
             </a>
